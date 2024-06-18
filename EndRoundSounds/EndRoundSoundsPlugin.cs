@@ -34,8 +34,12 @@ public class EndRoundSoundsPlugin : BasePlugin, IPluginConfig<EndRoundSoundsConf
 
     private HookResult OnRoundEnd(EventRoundEnd @event, GameEventInfo info)
     {
-        Server.PrintToConsole("Round ended!");
-        var song = Config.Sounds[new Random().Next(Config.Sounds.Count)];
+        if (Config.Sounds.Count == 0)
+        {
+            return HookResult.Continue;
+        }
+        
+        var song = Config.Sounds[Random.Shared.NextDistinct(Config.Sounds.Count)];
         var players = Utilities.GetPlayers();
         foreach (var player in players)
         {
