@@ -45,7 +45,7 @@ public class EndRoundSoundsPlugin : BasePlugin, IPluginConfig<EndRoundSoundsConf
 
     private HookResult OnRoundEnd(EventRoundEnd @event, GameEventInfo info)
     {
-        if ( (Config.Sounds_Win.Count == 0 && Config.Sounds_Lose.Count == 0 && Config.Winner_Loser_Differentiation == false) || (Config.Sounds.Count == 0 && Config.Winner_Loser_Differentiation == true) )
+        if ( (Config.Sounds_Win.Count == 0 && Config.Sounds_Lose.Count == 0 && Config.Winner_Loser_Differentiation == true) || (Config.Sounds.Count == 0 && Config.Winner_Loser_Differentiation == false) )
         {
             return HookResult.Continue;
         }
