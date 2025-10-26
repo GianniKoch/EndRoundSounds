@@ -39,11 +39,12 @@ public class EndRoundSoundsPlugin : BasePlugin, IPluginConfig<EndRoundSoundsConf
             return HookResult.Continue;
         }
         
-        var song = Config.Sounds[Random.Shared.NextDistinct(Config.Sounds.Count)];
+        var song_win = Config.Sounds_Win[Random.Shared.NextDistinct(Config.Sounds_Win.Count)];
+        var song_lose = Config.Sounds_Lose[Random.Shared.NextDistinct(Config.Sounds_Lose.Count)];
         var players = Utilities.GetPlayers();
         foreach (var player in players)
         {
-            player.ExecuteClientCommand($"play \"{song}\"");
+            player.ExecuteClientCommand($"play \"{song_win}\"");
         }
 
         return HookResult.Continue;
